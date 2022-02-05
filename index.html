@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <H1 align="center">Menghitung Nilai Akhir Mahasiswa</H1>
+  <table align="center">
+    <tr>
+      <td>Nilai Kehadiran</td>
+      <td>(15%)</td>
+      <td>:</td>
+      <td><input type="text" id="kehadiran"></td>
+    </tr>
+    <tr>
+      <td >Nilai Perilaku</td>
+      <td>(15%)</td>
+      <td>:</td>
+      <td><input type="text" id="perilaku"></td>
+    </tr>
+    <tr>
+      <td>Nilai Tugas</td>
+      <td>(20%)</td>
+      <td>:</td>
+      <td><input type="text" id="tugas"></td>
+    </tr>
+    <tr>
+      <td>Nilai UTS</td>
+      <td>(20%)</td>
+      <td>:</td>
+      <td><input type="text" id="uts"></td>
+    </tr>
+    <tr>
+      <td>Nilai UAS</td>
+      <td>(20%)</td>
+      <td>:</td>
+      <td><input type="text" id="uas"></td>
+    </tr>
+    <tr>
+      <td colspan="4" align="center"><button onclick="hitung()">Hitung</button></td>
+    </tr>
+    <tr>
+      <td colspan="3">Nilai Angka</td>
+      <td><input type="text" id="angka" readonly></td>
+    </tr>
+    <tr>
+      <td colspan="3">Nilai Huruf</td>
+      <td><input type="text" id="huruf" readonly></td>
+    </tr>
+  </table>
+</body>
+</html>
+
+<script>
+  function hitung(){
+    var kehadiran = (Number(document.getElementById("kehadiran").value)*15)/100;
+    var perilaku = (Number(document.getElementById("perilaku").value)*15)/100;
+    var tugas = (Number(document.getElementById("tugas").value)*20)/100;
+    var uts = (Number(document.getElementById("uts").value)*20)/100;
+    var uas = (Number(document.getElementById("uas").value)*20)/100;
+
+    var angka = kehadiran + perilaku + tugas + uts + uas;
+
+    document.getElementById("angka").value = angka;
+
+    if(angka > 79.49){
+      document.getElementById("huruf").value = "A";
+    }else if(angka > 71.49 && angka < 79.50){
+      document.getElementById("huruf").value = "AB";
+    }else if(angka > 64.49 && angka < 71.50){
+      document.getElementById("huruf").value = "B";
+    }else if(angka > 55.49 && angka < 64.50){
+      document.getElementById("huruf").value = "BC";
+    }else if(angka > 47.49 && angka < 64.50){
+      document.getElementById("huruf").value = "C";
+    }else if(angka > 39.49 && angka < 47.50){
+      document.getElementById("huruf").value = "CD";
+    }else if(angka > 31.49 && angka < 49.50){
+      document.getElementById("huruf").value = "D";
+    }else if(angka > 0.49 && angka < 31.50){
+      document.getElementById("huruf").value = "E";
+    }
+      
+  }
+  
+</script>
